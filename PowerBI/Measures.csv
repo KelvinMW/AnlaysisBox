@@ -3,3 +3,8 @@ SUMX (
     '817841',
     IFERROR ( VALUE ( '817841'[B/d2/Livestock_death] ), 0 )
 )
+
+Vulnerable Households = 
+SUM(
+'817841'[B/h1/HH_extreme_vulnerability]
+)
