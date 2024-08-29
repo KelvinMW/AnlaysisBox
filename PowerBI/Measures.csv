@@ -8,3 +8,4 @@ Vulnerable Households =
 SUM(
 '817841'[B/h1/HH_extreme_vulnerability]
 )
+Prevalence of Crop Diseases = CALCULATE(COUNT('817841'[B/c0/crop_disease_type]), '817841'[B/c0/crop_disease_occ] = "Yes")
