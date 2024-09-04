@@ -1,0 +1,5 @@
+Total Livestock Deaths = 
+SUMX(
+    '817841',
+    IFERROR(VALUE('817841'[B/d2/Livestock_death]), 0)
+)
