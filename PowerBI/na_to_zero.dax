@@ -1,0 +1,7 @@
+Cumulative Rain = 
+SWITCH(
+    TRUE(),
+    ISNUMBER([B/b1/Cumulative_rain]), VALUE([B/b1/Cumulative_rain]),
+    [B/b1/Cumulative_rain] = "n/a", 0,
+    0
+)
