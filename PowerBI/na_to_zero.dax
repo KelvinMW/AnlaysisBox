@@ -16,3 +16,34 @@ SWITCH(
 )
 Cumulative Rain = 
 IF('817841'[B/b1/Cumulative_rain] = "n/a", 0, IFERROR(VALUE('817841'[B/b1/Cumulative_rain]), 0))
+
+Cleaned_Livestock_Disease_Types = 
+IF(
+    '817841'[B/d2/Livestock_disease_types] = "n/a",
+    BLANK(),
+    SUBSTITUTE(
+            SUBSTITUTE(
+                SUBSTITUTE(
+                    SUBSTITUTE(
+                        SUBSTITUTE(
+                            SUBSTITUTE(
+                                SUBSTITUTE(
+                                    SUBSTITUTE(
+                                        LOWER('817841'[B/d2/Livestock_disease_types]),
+                                        "brucellosis", "Brucellosis"
+                                    ),
+                                    "typonosomiasis", "Trypanosomiasis"
+                                ),
+                                "tuberculosis", "Tuberculosis"
+                            ),
+                            "nagana", "Nagana"
+                        ),
+                        "setsfly", "Tsetse Fly"
+                    ),
+                    "burcella", "Brucellosis"
+                ),
+                "brocellar", "Brucellosis"
+            ),
+            ",", " and "
+        )   
+)
