@@ -5,3 +5,12 @@ SWITCH(
     [B/b1/Cumulative_rain] = "n/a", 0,
     0
 )
+
+
+Cleaned_Livestock_Affected = 
+SWITCH(
+    TRUE(),
+    ISNUMBER('817841'[B/d2/Livestock_affected]), VALUE('817841'[B/d2/Livestock_affected]),
+    '817841'[B/d2/Livestock_affected] = "n/a", 0,
+    0
+)
