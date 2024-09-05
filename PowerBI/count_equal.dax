@@ -1,0 +1,5 @@
+Already Dried Up Primary Water Source = 
+CALCULATE(
+    COUNTROWS('817841'),
+    FILTER('817841', '817841'[B/Water_source_dried] = "3")
+)
