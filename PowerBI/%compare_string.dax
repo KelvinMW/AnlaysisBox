@@ -1,0 +1,18 @@
+Percent Areas with Floods = 
+IF(
+    COUNTROWS('825318') = 0,
+    0,
+    IF(
+        DIVIDE(
+            CALCULATE(COUNT('825318'[group2/group2.1/floods]), '825318'[group2/group2.1/floods] = "1"),
+            COUNTROWS('825318'),
+            0
+        ) < 0.01,
+        0,
+        DIVIDE(
+            CALCULATE(COUNT('825318'[group2/group2.1/floods]), '825318'[group2/group2.1/floods] = "1"),
+            COUNTROWS('825318'),
+            0
+        )
+    )
+)
