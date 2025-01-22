@@ -1,0 +1,26 @@
+Locust Alert Status = 
+VAR CurrentDistrict = SELECTEDVALUE(Districts[District])
+VAR YesCount =
+    CALCULATE(
+        COUNTROWS('825318'),
+        VALUE('825318'[group2/group2.3/locust]) = 1,
+        ALLEXCEPT('825318', '825318'[group1/district])
+    )
+RETURN
+    IF(
+        ISBLANK(YesCount) || YesCount = 0,
+        "No Data",
+        IF(
+            YesCount <= 0,
+            "Normal",
+            IF(
+                YesCount > 0 && YesCount <= 50,
+                "Alert",
+                IF(
+                    YesCount <= 50,
+                    "Alarm",
+                    "Alarm"  // Updated fallback for clarity
+                )
+            )
+        )
+    )
